@@ -12,8 +12,7 @@ cursor = con.cursor()
 
 output = Document()
 
-
-cursor.execute("select IDWclass,count(IDWclass) as tally from IDWPPSLEKKICARD group by IDWclass")
+cursor.execute('sql to select the class in the db')
 classFrequecy = cursor.fetchall()
 
 
@@ -28,7 +27,7 @@ for classStd in classFrequecy:
   p.add_run("\n")
   p.add_run("Total: " + str(classStd[1]))
   
-  cursor.execute("select * from IDWPPSLEKKICARD where IDWclass = '" + str(classStd[0]) + "' order by IDWsurname asc")
+  cursor.execute("sql to get the students per class")
   students = cursor.fetchall()
 
   table = output.add_table(rows=1,cols=5)
